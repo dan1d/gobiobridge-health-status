@@ -1,6 +1,6 @@
 import React from "react";
 import { ConfigProvider } from "antd";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
