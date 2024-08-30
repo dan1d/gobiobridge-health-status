@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# BioBridge Health Status
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BioBridge Health Status is a static React application designed to display the health status and incident reports for BioBridge's services. The application is built with React and Ant Design and is intended to be deployed on GitHub Pages.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Adding a New Incident](#adding-a-new-incident)
+- [Building the Project](#building-the-project)
+- [Deploying to GitHub Pages](#deploying-to-github-pages)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Node.js**: Ensure you have Node.js installed. This project requires Node.js version `v20.17.0`.
+- **npm**: npm is the default package manager for Node.js. It should be installed automatically with Node.js.
 
-### `npm test`
+### Steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the Repository**
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/yourusername/gobiobridge-health-status.git
+   cd gobiobridge-health-status
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install Dependencies**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Run the following command to install the required dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+## Running the Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To start the development server and run the project locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The application will be available at `http://localhost:3000` in your web browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Adding a New Incident
 
-## Learn More
+Incidents are stored as JSON files in the `public/incidents` directory. Each incident corresponds to a specific date and is stored in a folder with the date as the name (formatted as `YYYY-MM-DD`).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Steps to Add a New Incident
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Create a Directory for the Date**
 
-### Code Splitting
+   Navigate to the `public/incidents` directory and create a new folder named after the incident date. For example, for an incident on September 1, 2024:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   mkdir -p public/incidents/2024-09-01
+   ```
 
-### Analyzing the Bundle Size
+2. **Create the Incident JSON File**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   Inside the new folder, create a `1.json` file (or another number if there are multiple incidents on the same day). This file should contain an array of incident objects. Here's an example:
 
-### Making a Progressive Web App
+   ```json
+   [
+     {
+       "service": "Cardiac Monitoring",
+       "severity": "High",
+       "title": "API Outage",
+       "description": "The Cardiac Monitoring API was unavailable for 3 hours on September 1, 2024. The issue has been resolved.",
+       "status": "Resolved",
+       "updated_at": "2024-09-01T15:00:00Z"
+     }
+   ]
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Incident Attributes
 
-### Advanced Configuration
+- **service**: The name of the service affected.
+- **severity**: The severity level of the incident (e.g., Low, Medium, High, Critical).
+- **title**: A brief title describing the incident.
+- **description**: A detailed description of the incident.
+- **status**: The current status of the incident (e.g., Investigating, Resolved, Monitoring).
+- **updated_at**: The timestamp for when the incident was last updated (formatted in ISO 8601).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Building the Project
 
-### Deployment
+To build the project for production, run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm run build
+```
 
-### `npm run build` fails to minify
+This will create an optimized build of the application in the `build` directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Deploying to GitHub Pages
+
+To deploy the project to GitHub Pages:
+
+1. **Install the gh-pages Package**
+
+   If you haven't already, install the `gh-pages` package:
+
+   ```bash
+   npm install gh-pages --save-dev
+   ```
+
+2. **Add the `homepage` Field to `package.json`
+
+   Open `package.json` and add the following field:
+
+   ```json
+   "homepage": "https://yourusername.github.io/gobiobridge-health-status"
+   ```
+
+   Replace `yourusername` with your actual GitHub username.
+
+3. **Add Deployment Scripts**
+
+   In `package.json`, add the following scripts:
+
+   ```json
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d build"
+   }
+   ```
+
+4. **Deploy the Application**
+
+   To deploy the application, run:
+
+   ```bash
+   npm run deploy
+   ```
+
+This command will build the project and push the contents of the `build` directory to the `gh-pages` branch of your repository.
+
+Your site should now be live at `https://yourusername.github.io/gobiobridge-health-status`.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

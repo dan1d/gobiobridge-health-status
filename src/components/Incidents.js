@@ -1,46 +1,65 @@
 import React, { useEffect, useState } from "react";
-import { List } from "antd";
+import { List, Pagination } from "antd";
 import Incident from "./Incident";
+import { incidentFiles } from "../incidents.data";
 
 const Incidents = () => {
   const [incidents, setIncidents] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 3;
+  const totalItems = incidentFiles.length;
 
   useEffect(() => {
-    const loadIncidents = async () => {
+    const loadIncidents = async (page) => {
       try {
-        const dateFolder = "2024-08-30";
-        const fileNames = ["1.json"]; // Add more files as needed
+        const startIndex = (page - 1) * itemsPerPage;
+        const filesToLoad = incidentFiles.slice(startIndex, startIndex + itemsPerPage);
 
-        const dataPromises = fileNames.map((fileName) =>
-          fetch(`${process.env.PUBLIC_URL}/incidents/${dateFolder}/${fileName}`).then((res) => res.json())
+        const dataPromises = filesToLoad.map((file) =>
+          fetch(`${process.env.PUBLIC_URL}/incidents/${file}`).then((res) => res.json())
         );
 
         const data = await Promise.all(dataPromises);
-        setIncidents(data);
+        const sortedData = data.flat().sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        setIncidents(sortedData);
       } catch (error) {
         console.error("Error loading incidents:", error);
       }
     };
 
-    loadIncidents();
-  }, []);
+    loadIncidents(currentPage);
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
-    <List
-      grid={{ gutter: 16, column: 1 }}
-      dataSource={incidents}
-      renderItem={(item) => (
-        <List.Item>
-          <Incident
-            title={item.title}
-            severity={item.severity}
-            status={item.status}
-            description={item.description}
-            updatedAt={item.updated_at}
-          />
-        </List.Item>
-      )}
-    />
+    <>
+      <List
+        grid={{ gutter: 16, column: 1 }}
+        dataSource={incidents}
+        renderItem={(item) => (
+          <List.Item>
+            <Incident
+              title={item.title}
+              severity={item.severity}
+              description={item.description}
+              updates={item.updates}
+            />
+          </List.Item>
+        )}
+      />
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <Pagination
+          current={currentPage}
+          pageSize={itemsPerPage}
+          total={totalItems}
+          onChange={handlePageChange}
+        />
+      </div>
+    </>
   );
 };
 

@@ -1,25 +1,29 @@
 import React from 'react';
+import { ConfigProvider } from 'antd';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import IncidentsPage from './pages/IncidentsPage';
-import { bioBridgeTheme } from './styles/globalStyles';
-// import 'antd/dist/antd.less';
+import ContactUsPage from './pages/ContactUsPage';
+import bioBridgeTheme from './styles/globalStyles';
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Arial', sans-serif;
-    background-color: ${bioBridgeTheme.brandBackground};
-    color: ${bioBridgeTheme.textColor};
+    background-color: ${bioBridgeTheme.colorBackground};
+    color: ${bioBridgeTheme.colorText};
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
   }
 
   a {
-    color: ${bioBridgeTheme.brandPrimary};
+    color: ${bioBridgeTheme.colorPrimary};
   }
 
   a:hover {
-    color: ${bioBridgeTheme.brandInfo};
+    color: ${bioBridgeTheme.colorInfo};
   }
 `;
 
@@ -29,18 +33,29 @@ const AppWrapper = styled.div`
   min-height: 100vh;
 `;
 
+const ContentWrapper = styled.div`
+  flex: 1;
+  padding: 20px;
+`;
+
 function App() {
   return (
-    <Router>
-      <GlobalStyle />
-      <AppWrapper>
-        <Header />
-        <Routes>
-          <Route path="/" element={<IncidentsPage />} />
-        </Routes>
-        <Footer />
-      </AppWrapper>
-    </Router>
+    <ConfigProvider theme={bioBridgeTheme}>
+      <Router>
+        <GlobalStyle />
+        <AppWrapper>
+          <Header />
+          <ContentWrapper>
+            <Routes>
+              <Route path="/" element={<IncidentsPage />} />
+              <Route path="/contact" element={<ContactUsPage />} />
+              <Route path="/incidents" element={<IncidentsPage />} />
+            </Routes>
+          </ContentWrapper>
+          <Footer />
+        </AppWrapper>
+      </Router>
+    </ConfigProvider>
   );
 }
 

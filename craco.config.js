@@ -1,16 +1,20 @@
-const bioBridgeThemeVariables = {
-  '@primary-color': '#5175B3',
-  '@secondary-color': '#5174B5',
-  '@info-color': '#5175B3',
-  '@text-color': '#1C1C1C',
-  '@text-color-secondary': '#B9D6F2',
-  '@heading-color': '#5175B3',
-  '@layout-header-background': '#1C1C1C',
-  '@layout-sider-background': '#1C1C1C',
-  '@btn-primary-bg': '#5175B3',
-  '@processing-color': '#5174B5',
-  '@success-copy-color': '#52c41a',
+const { theme } = require('antd');
+const { getDesignToken } = theme;
+
+const bioBridgeTheme = {
+  token: {
+    colorPrimary: '#5175B3',
+    colorInfo: '#5174B5',
+    colorDanger: '#f5222d',
+    colorSuccess: '#52c41a',
+    colorWarning: '#ff7a45',
+    colorBackground: '#fff',
+    colorText: '#1C1C1C',
+    colorTextSecondary: '#B9D6F2',
+  },
 };
+
+const globalToken = getDesignToken(bioBridgeTheme);
 
 module.exports = {
   plugins: [
@@ -19,7 +23,7 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: bioBridgeThemeVariables,
+            modifyVars: globalToken,
             javascriptEnabled: true,
           },
         },
