@@ -13,24 +13,26 @@ const Incidents = () => {
   const totalItems = incidentFiles.length;
 
   useEffect(() => {
-    const loadIncidents = async (page) => {
-      try {
-        setLoading(true);
-        const startIndex = (page - 1) * itemsPerPage;
-        const filesToLoad = incidentFiles.slice(startIndex, startIndex + itemsPerPage);
+    const loadIncidents = (page) => {
+      setLoading(true);
+      const startIndex = (page - 1) * itemsPerPage;
+      const selectedIncidents = incidentFiles.slice(startIndex, startIndex + itemsPerPage);
 
-        const dataPromises = filesToLoad.map((file) =>
-          fetch(`${process.env.PUBLIC_URL}/incidents/${file}`).then((res) => res.json())
-        );
+      // Process incidents to extract status and updatedAt
+      const processedIncidents = selectedIncidents.flatMap(incidentGroup =>
+        incidentGroup.incidents.map(incident => {
+          const latestUpdate = incident.updates[incident.updates.length - 1];
+          return {
+            ...incident,
+            status: latestUpdate.status,
+            updatedAt: latestUpdate.timestamp
+          };
+        })
+      );
 
-        const data = await Promise.all(dataPromises);
-        const sortedData = data.flat().sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-        setIncidents(sortedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error loading incidents:", error);
-        setLoading(false);
-      }
+      const sortedData = processedIncidents.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      setIncidents(sortedData);
+      setLoading(false);
     };
 
     loadIncidents(currentPage);
@@ -56,8 +58,9 @@ const Incidents = () => {
                 <Incident
                   title={item.title}
                   severity={item.severity}
+                  status={item.status}
                   description={item.description}
-                  updates={item.updates}
+                  updatedAt={item.updatedAt}
                 />
               </List.Item>
             )}

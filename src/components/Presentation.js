@@ -1,31 +1,41 @@
+// src/components/Presentation.js
 import React from 'react';
 import styled from 'styled-components';
 
 const PresentationWrapper = styled.div`
-  padding: 20px;
+  padding: 30px;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 `;
 
 const Title = styled.h1`
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 24px;
+  color: #2c3e50;
+  font-size: 2.5rem;
 `;
 
 const Subtitle = styled.h3`
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #555;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #34495e;
+  font-size: 1.75rem;
 `;
 
 const Text = styled.p`
-  margin-bottom: 10px;
-  color: #666;
-  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #7f8c8d;
+  line-height: 1.8;
+  font-size: 1.125rem;
+`;
+
+const HighlightedText = styled.span`
+  color: #2980b9;
+  font-weight: bold;
 `;
 
 const Presentation = () => {
@@ -50,6 +60,11 @@ const Presentation = () => {
       <Subtitle>Turning Challenges into Marketing Opportunities</Subtitle>
       <Text>
         Incident reporting doesn’t just serve an operational purpose; it can also be leveraged for marketing. For example, we can transform our transparency into a blog post on LinkedIn, highlighting our growth, the challenges we’ve overcome, and our commitment to improving our services. This kind of content can enhance our brand’s reputation and attract potential clients who value honesty and resilience.
+      </Text>
+
+      <Subtitle>Persistent Issues: Proactive Communication</Subtitle>
+      <Text>
+        In cases where an issue is persistent, we can take our transparency a step further by proactively sending <HighlightedText>email notifications</HighlightedText> to our users. These emails can provide updates on the service status and reassure clients that we are actively working to resolve the problem. This not only keeps users informed but also shows that we value their experience and are committed to maintaining high service standards.
       </Text>
 
       <Subtitle>Example Incident Report</Subtitle>
