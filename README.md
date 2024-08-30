@@ -111,7 +111,7 @@ To deploy the project to GitHub Pages:
    Open `package.json` and add the following field:
 
    ```json
-   "homepage": "https://yourusername.github.io/gobiobridge-health-status"
+   "homepage": "https://dan1d.github.io/gobiobridge-health-status"
    ```
 
    Replace `yourusername` with your actual GitHub username.
