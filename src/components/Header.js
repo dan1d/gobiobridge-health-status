@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 
 const { Header } = Layout;
 
-const AppHeader = () => {
+function AppHeader() {
   return (
-    <Header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <Header
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
       <div style={{ display: "flex", alignItems: "center" }}>
         <div className="logo" style={{ marginRight: "20px" }}>
           {
@@ -18,7 +24,7 @@ const AppHeader = () => {
       <div style={{ display: "flex", alignItems: "center" }}>
         <Menu theme="dark" mode="horizontal">
           <Menu.Item key="1">
-            <Link to="/stakeholder-presentation">Presentation MVP</Link>
+            <Link to="/stakeholder-presentation">Presentation MVPz</Link>
           </Menu.Item>
           <Menu.Item key="2">
             <Link to="/incidents">Incidents</Link>
@@ -35,6 +41,6 @@ const AppHeader = () => {
       </div>
     </Header>
   );
-};
+}
 
 export default AppHeader;

@@ -1,13 +1,13 @@
-import React from 'react';
-import { ConfigProvider } from 'antd';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import IncidentsPage from './pages/IncidentsPage';
-import ContactUsPage from './pages/ContactUsPage';
-import bioBridgeTheme from './styles/globalStyles';
-import StakeholderPresentationPage from './pages/StakeholderPresentationPage';
+import React from "react";
+import { ConfigProvider } from "antd";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import IncidentsPage from "./pages/IncidentsPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import bioBridgeTheme from "./styles/globalStyles";
+import StakeholderPresentationPage from "./pages/StakeholderPresentationPage";
 
 const GlobalStyle = createGlobalStyle`
   body {

@@ -4,7 +4,7 @@ import Incident from "./Incident";
 import incidentFiles from "../data/incidents.data";
 import "../styles/incidents.css";
 
-const Incidents = () => {
+function Incidents() {
   const [incidents, setIncidents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -19,18 +19,20 @@ const Incidents = () => {
       const selectedIncidents = incidentFiles.slice(startIndex, startIndex + itemsPerPage);
 
       // Process incidents to extract status and updatedAt
-      const processedIncidents = selectedIncidents.flatMap(incidentGroup =>
-        incidentGroup.incidents.map(incident => {
+      const processedIncidents = selectedIncidents.flatMap((incidentGroup) =>
+        incidentGroup.incidents.map((incident) => {
           const latestUpdate = incident.updates[incident.updates.length - 1];
           return {
             ...incident,
             status: latestUpdate.status,
-            updatedAt: latestUpdate.timestamp
+            updatedAt: latestUpdate.timestamp,
           };
-        })
+        }),
       );
 
-      const sortedData = processedIncidents.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      const sortedData = processedIncidents.sort(
+        (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt),
+      );
       setIncidents(sortedData);
       setLoading(false);
     };
@@ -43,10 +45,10 @@ const Incidents = () => {
   };
 
   return (
-    <>
+    <div>
       {loading ? (
         <div className="loader-container">
-          <div className="custom-loader"></div>
+          <div className="custom-loader" />
         </div>
       ) : (
         <>
@@ -65,7 +67,13 @@ const Incidents = () => {
               </List.Item>
             )}
           />
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
             <Pagination
               current={currentPage}
               pageSize={itemsPerPage}
@@ -75,8 +83,8 @@ const Incidents = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
-};
+}
 
 export default Incidents;

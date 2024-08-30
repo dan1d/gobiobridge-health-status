@@ -3,14 +3,21 @@ import { Form, Input, Button, Layout, Row, Col, Card } from "antd";
 
 const { Content } = Layout;
 
-const ContactUs = () => {
+function ContactUs() {
   const onFinish = (values) => {
+    // eslint-disable-next-line no-console
     console.log("Form values:", values);
   };
 
   return (
     <Layout>
-      <Content style={{ padding: "50px", maxWidth: "1000px", margin: "0 auto" }}>
+      <Content
+        style={{
+          padding: "50px",
+          maxWidth: "1000px",
+          margin: "0 auto",
+        }}
+      >
         <Row gutter={[32, 32]}>
           {/* Contact Information */}
           <Col xs={24} md={8}>
@@ -24,14 +31,14 @@ const ContactUs = () => {
             >
               <h2 style={{ color: "#ffffff" }}>Contact Us</h2>
               <p>
-                Have any questions? Just fill out this quick form, and our team
-                will be in touch ASAP.
+                Have any questions? Just fill out this quick form, and our team will be in touch
+                ASAP.
               </p>
               <div style={{ marginTop: "40px" }}>
                 <h3>Go Bio Bridge</h3>
                 <p>
-                  Bio Bridge Solutions Inc, 134 South Dixie Highway, Suite 209,
-                  Hallandale Beach, FL, 33009, United States
+                  Bio Bridge Solutions Inc, 134 South Dixie Highway, Suite 209, Hallandale Beach,
+                  FL, 33009, United States
                 </p>
                 <p>Phone: +1 (954) 266-8246</p>
                 <p>
@@ -53,7 +60,12 @@ const ContactUs = () => {
                   <Form.Item
                     name="firstName"
                     label="First Name"
-                    rules={[{ required: true, message: "Please enter your first name" }]}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter your first name",
+                      },
+                    ]}
                   >
                     <Input placeholder="Type Here" />
                   </Form.Item>
@@ -62,7 +74,12 @@ const ContactUs = () => {
                   <Form.Item
                     name="lastName"
                     label="Last Name"
-                    rules={[{ required: true, message: "Please enter your last name" }]}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter your last name",
+                      },
+                    ]}
                   >
                     <Input placeholder="Type Here" />
                   </Form.Item>
@@ -75,7 +92,11 @@ const ContactUs = () => {
                 name="email"
                 label="Email Address"
                 rules={[
-                  { required: true, message: "Please enter your email address", type: "email" },
+                  {
+                    required: true,
+                    message: "Please enter your email address",
+                    type: "email",
+                  },
                 ]}
               >
                 <Input placeholder="Type Here" />
@@ -97,6 +118,6 @@ const ContactUs = () => {
       </Content>
     </Layout>
   );
-};
+}
 
 export default ContactUs;

@@ -1,6 +1,6 @@
-import React from 'react';
-import StakeholderPresentation from '../components/Presentation';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import StakeholderPresentation from "../components/Presentation";
 
 const PageWrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const ContentWrapper = styled.div`
   width: 100%;
 `;
 
-const StakeholderPresentationPage = () => {
+function StakeholderPresentationPage() {
   return (
     <PageWrapper>
       <ContentWrapper>
@@ -22,6 +22,6 @@ const StakeholderPresentationPage = () => {
       </ContentWrapper>
     </PageWrapper>
   );
-};
+}
 
 export default StakeholderPresentationPage;

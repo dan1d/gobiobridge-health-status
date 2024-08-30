@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Incidents from "../components/Incidents";
 import styled from "styled-components";
 import { Spin } from "antd";
+import Incidents from "../components/Incidents";
 
 const PageWrapper = styled.div`
   display: flex;
@@ -37,12 +37,12 @@ const Underline = styled.span`
   bottom: -10px;
   width: 60px;
   height: 4px;
-  background-color: #5175B3;
+  background-color: #5175b3;
   transform: translateX(-50%);
   border-radius: 2px;
 `;
 
-const IncidentsPage = () => {
+function IncidentsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,7 +61,14 @@ const IncidentsPage = () => {
           <Underline />
         </Title>
         {loading ? (
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "200px",
+            }}
+          >
             <Spin size="large" />
           </div>
         ) : (
@@ -70,6 +77,6 @@ const IncidentsPage = () => {
       </ContentWrapper>
     </PageWrapper>
   );
-};
+}
 
 export default IncidentsPage;

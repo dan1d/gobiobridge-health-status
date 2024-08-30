@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
-import { LinkedinOutlined } from '@ant-design/icons';
-import styled from 'styled-components';
+import { LinkedinOutlined } from "@ant-design/icons";
+import styled from "styled-components";
 
 const { Footer } = Layout;
 
@@ -16,15 +16,21 @@ const Logo = styled.img`
 `;
 
 const HIPAAIcon = styled.img`
-  height: 120px;  /* Reverted to smaller size */
+  height: 120px; /* Reverted to smaller size */
   display: block;
-  margin: 10px auto 0 auto;  /* Centered horizontally */
+  margin: 10px auto 0 auto; /* Centered horizontally */
   filter: invert(1); /* Make the logo white */
 `;
 
-const AppFooter = () => {
+function AppFooter() {
   return (
-    <Footer style={{ backgroundColor: "#001529", padding: "20px 50px", color: "#ffffff" }}>
+    <Footer
+      style={{
+        backgroundColor: "#001529",
+        padding: "20px 50px",
+        color: "#ffffff",
+      }}
+    >
       <Row gutter={[16, 16]} align="middle">
         <Col xs={24} md={7} offset={1}>
           <LogoContainer>
@@ -40,7 +46,12 @@ const AppFooter = () => {
           <h3 style={{ color: "#ffffff" }}>Quick Links</h3>
           <ul style={{ listStyleType: "none", padding: 0 }}>
             <li>
-              <a href="https://www.gobiobridge.com" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff" }}>
+              <a
+                href="https://www.gobiobridge.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#ffffff" }}
+              >
                 Home
               </a>
             </li>
@@ -55,7 +66,12 @@ const AppFooter = () => {
               </a>
             </li>
             <li>
-              <a href="https://www.gobiobridge.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff" }}>
+              <a
+                href="https://www.gobiobridge.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#ffffff" }}
+              >
                 Privacy Statement
               </a>
             </li>
@@ -70,15 +86,36 @@ const AppFooter = () => {
             </a>
           </p>
           <p>Phone: +1 (954) 266-8246</p>
-          <div className="footer-icons" style={{ display: "flex", alignItems: "left", justifyContent: "left", marginTop: "10px" }}>
-            <a href="https://www.linkedin.com/company/biobridge/" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", marginRight: "15px" }}>
+          <div
+            className="footer-icons"
+            style={{
+              display: "flex",
+              alignItems: "left",
+              justifyContent: "left",
+              marginTop: "10px",
+            }}
+          >
+            <a
+              href="https://www.linkedin.com/company/biobridge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#ffffff", marginRight: "15px" }}
+            >
               <LinkedinOutlined className="social-icon" style={{ fontSize: "24px" }} />
             </a>
           </div>
         </Col>
 
         <Col xs={24} md={4}>
-          <div className="footer-icons" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "10px" }}>
+          <div
+            className="footer-icons"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "10px",
+            }}
+          >
             <HIPAAIcon
               // eslint-disable-next-line no-undef
               src={`${process.env.PUBLIC_URL}/assets/hipaa-compliant.svg`}
@@ -92,6 +129,6 @@ const AppFooter = () => {
       </div>
     </Footer>
   );
-};
+}
 
 export default AppFooter;
