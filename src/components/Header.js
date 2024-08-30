@@ -9,7 +9,10 @@ const AppHeader = () => {
     <Header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div className="logo" style={{ marginRight: "20px" }}>
-          <img src={`${process.env.PUBLIC_URL}/assets/logo.svg`} alt="Logo" style={{ height: "40px" }} />
+          {
+            // eslint-disable-next-line
+            <img src={`${process.env.PUBLIC_URL}/assets/logo.svg`} alt="Logo" style={{ height: "40px" }} />
+          }
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "center" }}>

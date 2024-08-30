@@ -29,6 +29,7 @@ const AppFooter = () => {
         <Col xs={24} md={7} offset={1}>
           <LogoContainer>
             <Logo
+              // eslint-disable-next-line no-undef
               src={`${process.env.PUBLIC_URL}/assets/logo.svg`}
               alt="BioBridge Logo"
             />
@@ -79,6 +80,7 @@ const AppFooter = () => {
         <Col xs={24} md={4}>
           <div className="footer-icons" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "10px" }}>
             <HIPAAIcon
+              // eslint-disable-next-line no-undef
               src={`${process.env.PUBLIC_URL}/assets/hipaa-compliant.svg`}
               alt="HIPAA Compliant"
             />
