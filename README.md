@@ -22,7 +22,7 @@ BioBridge Health Status is a static React application designed to display the he
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/gobiobridge-health-status.git
+   git clone https://github.com/dan1d/gobiobridge-health-status.git
    cd gobiobridge-health-status
    ```
 
