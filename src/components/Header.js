@@ -33,11 +33,7 @@ function AppHeader() {
             <Link to="/contact">Contact Us</Link>
           </Menu.Item>
           <Menu.Item key="4">
-            <a
-              href="https://www.gobiobridge.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.gobiobridge.com" target="_blank" rel="noopener noreferrer">
               gobiobridge.com
             </a>
           </Menu.Item>
