@@ -24,7 +24,7 @@ function AppHeader() {
       <div style={{ display: "flex", alignItems: "center" }}>
         <Menu theme="dark" mode="horizontal">
           <Menu.Item key="1">
-            <Link to="/stakeholder-presentation">Presentation MVPz</Link>
+            <Link to="/stakeholder-presentation">Presentation MVP</Link>
           </Menu.Item>
           <Menu.Item key="2">
             <Link to="/incidents">Incidents</Link>
@@ -33,7 +33,11 @@ function AppHeader() {
             <Link to="/contact">Contact Us</Link>
           </Menu.Item>
           <Menu.Item key="4">
-            <a href="https://www.gobiobridge.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.gobiobridge.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               gobiobridge.com
             </a>
           </Menu.Item>

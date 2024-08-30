@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 module.exports = {
   env: {
     browser: true,
@@ -23,7 +24,12 @@ module.exports = {
     "react/react-in-jsx-scope": "off", // Not needed with React 17+
     "import/prefer-default-export": "off",
     "no-unused-vars": "warn",
-    "prettier/prettier": ["error"],
+    "prettier/prettier": [
+      "error",
+      {
+        parser: "flow",
+      },
+    ],
     "react/prop-types": "off", // Disable if not using PropTypes
     "jsx-a11y/label-has-associated-control": "off",
     "arrow-body-style": ["error", "as-needed"], // Enforce concise arrow functions
