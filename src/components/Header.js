@@ -15,10 +15,10 @@ const AppHeader = () => {
       <div style={{ display: "flex", alignItems: "center" }}>
         <Menu theme="dark" mode="horizontal">
           <Menu.Item key="2">
-            <Link to="/incidents">Incidents</Link>
+            <Link to="gobiobridge-health-status/incidents">Incidents</Link>
           </Menu.Item>
           <Menu.Item key="3">
-            <Link to="/contact">Contact Us</Link>
+            <Link to="gobiobridge-health-status/contact">Contact Us</Link>
           </Menu.Item>
           <Menu.Item key="4">
             <a href="https://www.gobiobridge.com" target="_blank" rel="noopener noreferrer">

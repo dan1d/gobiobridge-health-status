@@ -44,12 +44,12 @@ const AppFooter = () => {
               </a>
             </li>
             <li>
-              <a href="/incidents" style={{ color: "#ffffff" }}>
+              <a href="gobiobridge-health-status/incidents" style={{ color: "#ffffff" }}>
                 Incidents
               </a>
             </li>
             <li>
-              <a href="/contact" style={{ color: "#ffffff" }}>
+              <a href="gobiobridge-health-status/contact" style={{ color: "#ffffff" }}>
                 Contact Us
               </a>
             </li>
