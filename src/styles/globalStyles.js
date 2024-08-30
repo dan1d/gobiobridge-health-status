@@ -1,0 +1,17 @@
+export const bioBridgeTheme = {
+    brandPrimary: '#5175B3',
+    brandInfo: '#5174B5',
+    brandDanger: '#f5222d',
+    brandDangerMid: '#FF3D4A',
+    brandSuccess: '#52c41a',
+    brandWarning: '#ff7a45',
+    branWarningMid: '#FCAA58',
+    brandBackground: '#fff',
+    grayPrimary: '#9ca3af',
+    mustardYellow: '#F0AE67',
+    blue: '#3AADF9',
+    lightGray: '#F1F2Fc',
+    textColor: '#1C1C1C',
+    textColorInfo: '#B9D6F2',
+    textGrayColor: '#6b7176',
+  };
