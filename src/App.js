@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import IncidentsPage from './pages/IncidentsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import bioBridgeTheme from './styles/globalStyles';
+import StakeholderPresentationPage from './pages/StakeholderPresentationPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -50,6 +51,7 @@ function App() {
               <Route path="/" element={<IncidentsPage />} />
               <Route path="/contact" element={<ContactUsPage />} />
               <Route path="/incidents" element={<IncidentsPage />} />
+              <Route path="/stakeholder-presentation" element={<StakeholderPresentationPage />} />
             </Routes>
           </ContentWrapper>
           <Footer />

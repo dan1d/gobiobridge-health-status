@@ -14,6 +14,9 @@ const AppHeader = () => {
       </div>
       <div style={{ display: "flex", alignItems: "center" }}>
         <Menu theme="dark" mode="horizontal">
+          <Menu.Item key="1">
+            <Link to="/stakeholder-presentation">Presentation MVP</Link>
+          </Menu.Item>
           <Menu.Item key="2">
             <Link to="/incidents">Incidents</Link>
           </Menu.Item>
