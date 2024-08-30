@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Card, Tag } from "antd";
 import { ExclamationCircleOutlined, CheckCircleOutlined, WarningOutlined } from "@ant-design/icons";
 
@@ -24,6 +25,17 @@ const Incident = ({ title, severity, status, description, updatedAt }) => {
       <p><strong>Updated At:</strong> {new Date(updatedAt).toLocaleString()}</p>
     </Card>
   );
+};
+
+Incident.propTypes = {
+  title: PropTypes.string.isRequired,
+  severity: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  updatedAt: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date),
+  ]).isRequired,
 };
 
 export default Incident;
