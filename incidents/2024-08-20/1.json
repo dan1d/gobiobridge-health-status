@@ -3,7 +3,7 @@
       "service": "Cardiac Monitoring",
       "severity": "Critical",
       "title": "System Outage",
-      "description": "The entire system was down for 4 hours due to a critical failure.",
+      "description": "3 The entire system was down for 4 hours due to a critical failure.",
       "updates": [
         {
           "timestamp": "2024-08-25T14:00:00Z",
