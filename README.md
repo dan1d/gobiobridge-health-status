@@ -1,3 +1,4 @@
+
 # BioBridge Health Status
 
 BioBridge Health Status is a static React application designed to display the health status and incident reports for BioBridge's services. The application is built with React and Ant Design and is intended to be deployed on GitHub Pages.
@@ -23,7 +24,7 @@ BioBridge Health Status is a static React application designed to display the he
 
    ```bash
    git clone https://github.com/dan1d/gobiobridge-health-status.git
-   cd gobiobridge-health-status
+   cd gobriobridge-health-status
    ```
 
 2. **Install Dependencies**
@@ -46,43 +47,58 @@ The application will be available at `http://localhost:3000` in your web browser
 
 ## Adding a New Incident
 
-Incidents are stored as JSON files in the `public/incidents` directory. Each incident corresponds to a specific date and is stored in a folder with the date as the name (formatted as `YYYY-MM-DD`).
+Incidents are stored directly in the source code within the `src/data/incidents.data.js` file as an array of incident objects. Each incident corresponds to a specific date.
 
 ### Steps to Add a New Incident
 
-1. **Create a Directory for the Date**
+1. **Open the `src/data/incidents.data.js` File**
 
-   Navigate to the `public/incidents` directory and create a new folder named after the incident date. For example, for an incident on September 1, 2024:
+   Locate the `incidentsData` array within the file.
 
-   ```bash
-   mkdir -p public/incidents/2024-09-01
-   ```
+2. **Add a New Incident Object**
 
-2. **Create the Incident JSON File**
+   Add a new object to the `incidentsData` array for the new incident. The structure of the incident object is as follows:
 
-   Inside the new folder, create a `1.json` file (or another number if there are multiple incidents on the same day). This file should contain an array of incident objects. Here's an example:
-
-   ```json
-   [
+   ```javascript
+   const incidentsData = [
      {
-       "service": "Cardiac Monitoring",
-       "severity": "High",
-       "title": "API Outage",
-       "description": "The Cardiac Monitoring API was unavailable for 3 hours on September 1, 2024. The issue has been resolved.",
-       "status": "Resolved",
-       "updated_at": "2024-09-01T15:00:00Z"
-     }
-   ]
+       date: "2024-09-01",
+       incidents: [
+         {
+           service: "Cardiac Monitoring",
+           severity: "High",
+           title: "API Outage",
+           description: "The Cardiac Monitoring API was unavailable for 3 hours on September 1, 2024. The issue has been resolved.",
+           updates: [
+             {
+               timestamp: "2024-09-01T15:00:00Z",
+               status: "Resolved",
+               detail: "The API outage has been resolved."
+             },
+             {
+               timestamp: "2024-09-01T12:00:00Z",
+               status: "Investigating",
+               detail: "Investigating the cause of the API outage."
+             }
+           ]
+         }
+       ]
+     },
+     // Add more incidents as needed
+   ];
    ```
 
 ### Incident Attributes
 
+- **date**: The date of the incident (formatted as `YYYY-MM-DD`).
 - **service**: The name of the service affected.
 - **severity**: The severity level of the incident (e.g., Low, Medium, High, Critical).
 - **title**: A brief title describing the incident.
 - **description**: A detailed description of the incident.
-- **status**: The current status of the incident (e.g., Investigating, Resolved, Monitoring).
-- **updated_at**: The timestamp for when the incident was last updated (formatted in ISO 8601).
+- **updates**: An array of update objects, each containing:
+  - **timestamp**: The timestamp for when the update was made (formatted in ISO 8601).
+  - **status**: The current status of the incident (e.g., Investigating, Resolved, Monitoring).
+  - **detail**: Detailed information about the update.
 
 ## Building the Project
 
@@ -106,15 +122,13 @@ To deploy the project to GitHub Pages:
    npm install gh-pages --save-dev
    ```
 
-2. **Add the `homepage` Field to `package.json`
+2. **Add the `homepage` Field to `package.json`**
 
    Open `package.json` and add the following field:
 
    ```json
    "homepage": "https://dan1d.github.io/gobiobridge-health-status"
    ```
-
-   Replace `yourusername` with your actual GitHub username.
 
 3. **Add Deployment Scripts**
 
@@ -137,7 +151,7 @@ To deploy the project to GitHub Pages:
 
 This command will build the project and push the contents of the `build` directory to the `gh-pages` branch of your repository.
 
-Your site should now be live at `https://yourusername.github.io/gobiobridge-health-status`.
+Your site should now be live at `https://dan1d.github.io/gobiobridge-health-status`.
 
 ## License
 
