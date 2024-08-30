@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gobiobridge-health-status/static/css/main.4f7b50d1.css",
-    "main.js": "/gobiobridge-health-status/static/js/main.732eff15.js",
+    "main.js": "/gobiobridge-health-status/static/js/main.c6cdde97.js",
     "static/js/453.a517b3e8.chunk.js": "/gobiobridge-health-status/static/js/453.a517b3e8.chunk.js",
     "index.html": "/gobiobridge-health-status/index.html",
     "main.4f7b50d1.css.map": "/gobiobridge-health-status/static/css/main.4f7b50d1.css.map",
-    "main.732eff15.js.map": "/gobiobridge-health-status/static/js/main.732eff15.js.map",
+    "main.c6cdde97.js.map": "/gobiobridge-health-status/static/js/main.c6cdde97.js.map",
     "453.a517b3e8.chunk.js.map": "/gobiobridge-health-status/static/js/453.a517b3e8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4f7b50d1.css",
-    "static/js/main.732eff15.js"
+    "static/js/main.c6cdde97.js"
   ]
 }
